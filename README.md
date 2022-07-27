@@ -2,4 +2,4 @@
 
 
 
-### exparimental feture: set goal
+### experimental feture: set goal
