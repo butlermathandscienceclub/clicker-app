@@ -47,6 +47,10 @@ error code:LOCALSTORAGE_NULL_OR_UNDEFINED `)
 		height: 70px;
 		
 	}
+	:root{
+		color: white;
+		background-color: black;
+	}
 </style>
 
 <main>
