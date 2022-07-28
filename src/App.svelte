@@ -12,10 +12,15 @@ var left = null
 	}
 	function downstate() {
 		state -=1
+		
 				left = goal_v-state
 
 				localStorage.setItem("n", state);
 
+	}
+	function setstate() {
+		state = Number(prompt())
+		localStorage.setItem("n", state);
 	}
 	function ups3() {
 		state +=3
@@ -63,16 +68,19 @@ error code:3701 `)
 </script>
 
 <style>
-		:root{
-		color: white;
-		background-color: black;
+	:root{
+		color:white; background-color: black;
 	}
-
 	button{
 		width: 90px;
 		height: 70px;
 		
 	}
+	#footer {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+}
 
 </style>
 
@@ -84,6 +92,8 @@ error code:3701 `)
 <button on:click={downstate}>-1</button>
 	<button on:click={ds3}>-3</button>
 	<button on:click={clear}>reset</button>
+		<button on:click={setstate}>set to</button>
+
 	<br><br>	<br><br>
 	<br><br>
 	<br><br>
