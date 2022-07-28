@@ -68,11 +68,6 @@ error code:3701 `)
 		height: 70px;
 		
 	}
-	#footer {
-    position: absolute;
-    bottom: 30px;
-    width: 100%;
-}
 
 </style>
 
