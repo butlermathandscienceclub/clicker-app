@@ -1,38 +1,59 @@
 <script>
 		import { onMount } from 'svelte';
-
+var left = null
 	var state = 0;
+	var ifgoal = false
+	var goal_v = 0
 	function upstate(){
 		state += 1
+		left = goal_v-state
 		localStorage.setItem("n", state);
 
 	}
 	function downstate() {
 		state -=1
+				left = goal_v-state
+
 				localStorage.setItem("n", state);
 
 	}
 	function ups3() {
 		state +=3
+				left = goal_v-state
+
 				localStorage.setItem("n", state);
 
 	}
 	function ds3() {
 		state-=3
+				left = goal_v-state
+
 				localStorage.setItem("n", state);
 
 	}
 	function clear(){
 		state = 0;
-						localStorage.setItem("n", state);
+				left = goal_v-state
 
+			localStorage.setItem("n", state);
+
+	}
+	function goal() {
+		 goal_v = prompt()
+		if (goal_v==0){
+			ifgoal = false
+		}
+		else{
+			ifgoal=true
+		}
+		left = goal_v-state
 	}
 	onMount(async () => {
 			if (typeof(Storage) !== "undefined") {
 state = parseInt(localStorage.getItem("n")) || 0
 } else {
 alert(`ERROR! Refresh the page, and if it continues, call K_TECH 
-error code:LOCALSTORAGE_NULL_OR_UNDEFINED `)
+error code:3701 `)
 				while (true){}
 }
 
@@ -47,10 +68,7 @@ error code:LOCALSTORAGE_NULL_OR_UNDEFINED `)
 		height: 70px;
 		
 	}
-	:root{
-		color: white;
-		background-color: black;
-	}
+
 </style>
 
 <main>
@@ -60,9 +78,22 @@ error code:LOCALSTORAGE_NULL_OR_UNDEFINED `)
 
 <button on:click={downstate}>-1</button>
 	<button on:click={ds3}>-3</button>
-
-
 	<button on:click={clear}>reset</button>
+	<br><br>	<br><br>
+	<br><br>
+	<br><br>
+{#if ifgoal}
+you have {left} left
+	<br>
+{/if}
+<button on:click={goal}>set a goal</button>
+<br>
 
 
+
+
+
+
+
+	<div id="footer">made by k-tech and butler math and science club</div>
 </main>
