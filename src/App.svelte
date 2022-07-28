@@ -4,6 +4,7 @@ var left = null
 	var state = 0;
 	var ifgoal = false
 	var goal_v = 0
+	window.isd = 1
 	function upstate(){
 		state += 1
 		left = goal_v-state
@@ -18,6 +19,20 @@ var left = null
 				localStorage.setItem("n", state);
 
 	}
+function dark(){
+if(window.isd==0)
+{document.querySelector(":root").style.color = "white"
+document.querySelector(":root").style.backgroundColor = "black"
+window.isd = 1;
+
+}
+else if(window.isd==1){
+document.querySelector(":root").style.color = "black"
+document.querySelector(":root").style.backgroundColor = "white"
+window.isd = 0;
+}
+}
+	
 	function setstate() {
 		state = Number(prompt())
 		localStorage.setItem("n", state);
@@ -103,11 +118,7 @@ you have {left} left
 {/if}
 <button on:click={goal}>set a goal</button>
 <br>
-
-
-
-
-
+<button on:click={dark}>toggle dark</button>
 
 
 	<div id="footer">made by k-tech and butler math and science club</div>
