@@ -63,6 +63,11 @@ error code:3701 `)
 </script>
 
 <style>
+		:root{
+		color: white;
+		background-color: black;
+	}
+
 	button{
 		width: 90px;
 		height: 70px;
