@@ -2,6 +2,7 @@
 		import { onMount } from 'svelte';
 var left = null
 	var state = 0;
+	var ifgoal = false
 	var goal_v = 0
 	function upstate(){
 		state += 1
@@ -39,6 +40,12 @@ var left = null
 	}
 	function goal() {
 		 goal_v = prompt()
+		if (goal_v==0){
+			ifgoal = false
+		}
+		else{
+			ifgoal=true
+		}
 		left = goal_v-state
 	}
 	onMount(async () => {
@@ -46,7 +53,7 @@ var left = null
 state = parseInt(localStorage.getItem("n")) || 0
 } else {
 alert(`ERROR! Refresh the page, and if it continues, call K_TECH 
-error code:LOCALSTORAGE_NULL_OR_UNDEFINED `)
+error code:3701 `)
 				while (true){}
 }
 
@@ -83,8 +90,10 @@ error code:LOCALSTORAGE_NULL_OR_UNDEFINED `)
 	<br><br>	<br><br>
 	<br><br>
 	<br><br>
-
-{left}
+{#if ifgoal}
+you have {left} left
+	<br>
+{/if}
 <button on:click={goal}>set a goal</button>
 <br>
 
