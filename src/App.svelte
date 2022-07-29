@@ -67,10 +67,16 @@ window.isd = 0;
 			ifgoal=true
 		}
 		left = goal_v-state
+		localStorage.setItem("g", goal_v);
 	}
 	onMount(async () => {
 			if (typeof(Storage) !== "undefined") {
 state = parseInt(localStorage.getItem("n")) || 0
+	goal_v = parseInt(localStorage.getItem("g"))||0
+				if (goal_v !=0){ifgoal=1}
+			left = goal_v-state
+
+				console.log(goal_v)
 } else {
 alert(`ERROR! Refresh the page, and if it continues, call K_TECH 
 error code:3701 `)
