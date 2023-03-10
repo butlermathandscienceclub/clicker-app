@@ -39,6 +39,7 @@ window.isd = 0;
 	function setstate() {
 		state = Number(prompt())
 		localStorage.setItem("n", state);
+		left = goal_v-state
     update_title()
 	}
 	function ups3() {
