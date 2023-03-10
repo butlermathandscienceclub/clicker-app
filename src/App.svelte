@@ -5,11 +5,14 @@ var left = null
 	var ifgoal = false
 	var goal_v = 0
 	window.isd = 1
+  function update_title(){
+    document.getElementsByTagName("title")[0]. innerHTML = `clicker! - ${state}`
+  }
 	function upstate(){
 		state += 1
 		left = goal_v-state
 		localStorage.setItem("n", state);
-
+  update_title()
 	}
 	function downstate() {
 		state -=1
@@ -17,7 +20,7 @@ var left = null
 				left = goal_v-state
 
 				localStorage.setItem("n", state);
-
+update_title()
 	}
 function dark(){
 if(window.isd==0)
@@ -37,27 +40,28 @@ window.isd = 0;
 		state = Number(prompt())
 		localStorage.setItem("n", state);
 		left = goal_v-state
+    update_title()
 	}
 	function ups3() {
 		state +=3
 				left = goal_v-state
 
 				localStorage.setItem("n", state);
-
+update_title()
 	}
 	function ds3() {
 		state-=3
 				left = goal_v-state
 
 				localStorage.setItem("n", state);
-
+update_title()
 	}
 	function clear(){
 		state = 0;
 				left = goal_v-state
 
 			localStorage.setItem("n", state);
-
+update_title()
 	}
 	function goal() {
 		 goal_v = prompt()
@@ -72,6 +76,11 @@ window.isd = 0;
 	}
 	onMount(async () => {
 			if (typeof(Storage) !== "undefined") {
+            if (localStorage.getItem("VERSION") != "v2.1.0"){
+  alert("Verion 2.1.0 \nchangelog: ")
+  localStorage.setItem("VERSION","v2.1.0")
+}
+
 state = parseInt(localStorage.getItem("n")) || 0
 	goal_v = parseInt(localStorage.getItem("g"))||0
 				if (goal_v !=0){ifgoal=1}
@@ -80,11 +89,11 @@ state = parseInt(localStorage.getItem("n")) || 0
 				console.log(goal_v)
 } else {
 alert(`ERROR! Refresh the page, and if it continues, call K_TECH 
-error code:3701 `)
+error code: 01 `)
 				while (true){}
 }
 
-
+update_title()
 	});
 
 </script>
